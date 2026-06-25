@@ -36,6 +36,18 @@ export const skills: Skill[] = [
 
 export const timeline = [
   {
+    year: 'Mar 2025 — Presente',
+    title: 'Gestor de Redes/Conteúdo & Analista de Dados',
+    company: 'Dalima, Lda — Maputo',
+    description: 'Gestão da presença digital e execução de campanhas digitais. Extração, limpeza e análise de dados do sistema Odoo. Criação de dashboards e relatórios interactivos com Odoo Spreadsheets e Power BI. Análise de negócio para Vendas e Finanças, definição de KPIs e garantia da qualidade e governança de dados. Personalização de relatórios e visualizações com Odoo Studio.',
+  },
+  {
+    year: 'Out 2024 — Jan 2025',
+    title: 'Analista de Dados',
+    company: 'Grupo CB — Maputo',
+    description: 'Extração, limpeza e tratamento de dados dos sistemas internos do grupo. Desenvolvimento de relatórios e dashboards para apoio à tomada de decisão nas áreas de vendas, finanças e operações. Monitorização de KPIs, análise de performance e produção de relatórios periódicos para a gestão.',
+  },
+  {
     year: 'Jul 2023 — Out 2024',
     title: 'Técnico de Novos Projectos (Consultor ERP, Analista de Dados)',
     company: 'SMP, SA — Maputo',
