@@ -60,14 +60,14 @@ export default function SobrePage() {
               <a href="mailto:claudioroseta@gmail.com" className="flex items-center gap-2 text-sm text-muted hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" /> claudioroseta@gmail.com
               </a>
-              <a href="https://bit.ly/link_claudio" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/in/claudioroseta/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted hover:text-primary transition-colors">
                 <Linkedin className="w-4 h-4" /> LinkedIn
               </a>
             </div>
 
             <a
-              href="/cv.pdf"
-              download
+              href="/CV_ClaudioRoseta_DEV.pdf"
+              download="CV_ClaudioRoseta_DEV.pdf"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-xl hover:bg-primary/80 transition-colors"
             >
               <Download className="w-4 h-4" /> {t.about.download_cv}

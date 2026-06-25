@@ -49,8 +49,8 @@ export default function HeroSection() {
             {t.hero.cta_projects} <ArrowRight className="w-5 h-5" />
           </Link>
           <a
-            href="/cv.pdf"
-            download
+            href="/CV_ClaudioRoseta_DEV.pdf"
+            download="CV_ClaudioRoseta_DEV.pdf"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-border text-text font-semibold rounded-xl hover:border-primary/50 hover:bg-primary/5 transition-all text-lg"
           >
             <Download className="w-5 h-5" /> {t.hero.cta_cv}

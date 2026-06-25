@@ -78,8 +78,12 @@ export default function ClimaPage() {
       const cur = await curRes.json()
       const fore = await foreRes.json()
 
+      const cityNameOverrides: Record<string, string> = {
+        'Lourenco Marques': 'Maputo',
+        'Lourenço Marques': 'Maputo',
+      }
       setCurrent({
-        city: cur.name,
+        city: cityNameOverrides[cur.name] ?? cur.name,
         country: cur.sys.country,
         temp: Math.round(cur.main.temp),
         feels_like: Math.round(cur.main.feels_like),

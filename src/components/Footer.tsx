@@ -24,8 +24,8 @@ export default function Footer() {
             <h4 className="font-semibold text-text mb-3">{t.nav.contact}</h4>
             <div className="flex gap-3">
               {[
-                { href: 'https://github.com/', icon: Github },
-                { href: 'https://linkedin.com/', icon: Linkedin },
+                { href: 'https://github.com/cjroseta', icon: Github },
+                { href: 'https://www.linkedin.com/in/claudioroseta/', icon: Linkedin },
                 { href: 'mailto:claudioroseta@gmail.com', icon: Mail },
               ].map(({ href, icon: Icon }) => (
                 <a
