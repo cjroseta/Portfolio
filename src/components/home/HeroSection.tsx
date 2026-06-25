@@ -59,10 +59,9 @@ export default function HeroSection() {
 
         <div className="mt-16 flex justify-center gap-8 text-faint text-sm">
           {[
-            { value: '10+', label: t.hero.stat_projects },
-            { value: '5+', label: t.hero.stat_apis },
+            { value: '6+', label: t.hero.stat_projects },
+            { value: '3', label: t.hero.stat_apis },
             { value: '5+', label: t.hero.stat_years },
-            // Altera os valores acima conforme a tua realidade
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl font-bold text-text mb-1">{stat.value}</div>

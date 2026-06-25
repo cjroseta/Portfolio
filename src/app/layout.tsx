@@ -6,12 +6,12 @@ import { ThemeProvider } from '@/context/ThemeContext'
 import { LangProvider } from '@/context/LangContext'
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Dev & Análise de Dados',
-  description: 'Portfólio profissional de desenvolvimento de software e análise de dados com integrações de APIs reais.',
-  keywords: ['developer', 'portfolio', 'data analysis', 'software', 'APIs'],
+  title: 'Cláudio Roseta | Desenvolvedor de Software & Analista de Dados',
+  description: 'Portfólio de Cláudio Roseta — Desenvolvedor de Software e Analista de Dados especializado em ERP Odoo, Power BI, análise de dados e desenvolvimento web.',
+  keywords: ['Cláudio Roseta', 'desenvolvedor', 'analista de dados', 'Odoo', 'Power BI', 'Moçambique', 'ERP', 'portfolio'],
   openGraph: {
-    title: 'Portfolio | Dev & Análise de Dados',
-    description: 'Portfólio profissional com projetos reais e integrações de APIs.',
+    title: 'Cláudio Roseta | Dev & Analista de Dados',
+    description: 'Portfólio profissional com projectos reais, integrações de APIs e análise de dados.',
     type: 'website',
   },
 }
