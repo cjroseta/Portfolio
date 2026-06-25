@@ -5,7 +5,7 @@ import { ArrowRight, Download } from 'lucide-react'
 import { useLang } from '@/context/LangContext'
 
 export default function HeroSection() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -49,8 +49,9 @@ export default function HeroSection() {
             {t.hero.cta_projects} <ArrowRight className="w-5 h-5" />
           </Link>
           <a
-            href="/CV_ClaudioRoseta_DEV.pdf"
-            download="CV_ClaudioRoseta_DEV.pdf"
+            href={lang === 'en' ? '/cv-novo-en.html' : '/cv-novo.html'}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-border text-text font-semibold rounded-xl hover:border-primary/50 hover:bg-primary/5 transition-all text-lg"
           >
             <Download className="w-5 h-5" /> {t.hero.cta_cv}
@@ -59,8 +60,8 @@ export default function HeroSection() {
 
         <div className="mt-16 flex justify-center gap-8 text-faint text-sm">
           {[
-            { value: '6+', label: t.hero.stat_projects },
-            { value: '4', label: t.hero.stat_apis },
+            { value: '15+', label: t.hero.stat_projects },
+            { value: '10+', label: t.hero.stat_apis },
             { value: '6+', label: t.hero.stat_years },
           ].map((stat) => (
             <div key={stat.label} className="text-center">

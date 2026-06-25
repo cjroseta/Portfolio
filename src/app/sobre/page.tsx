@@ -13,7 +13,7 @@ const categoryColors: Record<string, string> = {
 }
 
 export default function SobrePage() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
 
   const categoryLabels: Record<string, string> = {
     linguagem: t.about.cat_linguagem,
@@ -66,8 +66,9 @@ export default function SobrePage() {
             </div>
 
             <a
-              href="/CV_ClaudioRoseta_DEV.pdf"
-              download="CV_ClaudioRoseta_DEV.pdf"
+              href={lang === 'en' ? '/cv-novo-en.html' : '/cv-novo.html'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-xl hover:bg-primary/80 transition-colors"
             >
               <Download className="w-4 h-4" /> {t.about.download_cv}
@@ -154,10 +155,17 @@ export default function SobrePage() {
         {/* Educação */}
         <div className="mb-16">
           <h2 className="text-2xl font-bold text-text mb-6 flex items-center gap-2">🎓 Educação</h2>
-          <div className="bg-card border border-border rounded-xl p-6">
-            <p className="text-primary text-sm font-medium mb-1">2025 (em curso)</p>
-            <h3 className="text-text font-semibold text-lg">Licenciatura em Engenharia Informática</h3>
-            <p className="text-muted text-sm">Universidade Aberta ISCED</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-card border border-border rounded-xl p-6">
+              <p className="text-primary text-sm font-medium mb-1">2025 (em curso)</p>
+              <h3 className="text-text font-semibold text-lg">Licenciatura em Engenharia Informática</h3>
+              <p className="text-muted text-sm">Universidade Aberta ISCED</p>
+            </div>
+            <div className="bg-card border border-border rounded-xl p-6">
+              <p className="text-primary text-sm font-medium mb-1">2011</p>
+              <h3 className="text-text font-semibold text-lg">12ª Classe — Ensino Secundário</h3>
+              <p className="text-muted text-sm">Escola João XXIII — Beira</p>
+            </div>
           </div>
         </div>
 
