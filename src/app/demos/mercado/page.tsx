@@ -321,7 +321,7 @@ export default function MercadoPage() {
                     <YAxis stroke="var(--text-faint)" tick={{ fontSize: 11 }} tickFormatter={fmtVol} />
                     <Tooltip
                       contentStyle={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)', borderRadius: 8 }}
-                      formatter={(v: number) => [fmtVol(v), 'Volume']}
+                      formatter={(v) => [fmtVol(v as number), 'Volume']}
                     />
                     <Bar dataKey="volume" name="Volume" fill="var(--primary)" opacity={0.7} radius={[2, 2, 0, 0]} />
                     <Line type="monotone" dataKey="close" name="Preço" stroke="var(--secondary)" strokeWidth={1.5} dot={false} yAxisId={undefined} />
@@ -350,7 +350,7 @@ export default function MercadoPage() {
                     <YAxis stroke="var(--text-faint)" tick={{ fontSize: 11 }} domain={[0, 100]} />
                     <Tooltip
                       contentStyle={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)', borderRadius: 8 }}
-                      formatter={(v: number) => [v?.toFixed(2), 'RSI']}
+                      formatter={(v) => [(v as number)?.toFixed(2), 'RSI']}
                     />
                     <ReferenceLine y={70} stroke="#FF6584" strokeDasharray="4 2" label={{ value: 'Sobrecomprado 70', fill: '#FF6584', fontSize: 11 }} />
                     <ReferenceLine y={30} stroke="#43E97B" strokeDasharray="4 2" label={{ value: 'Sobrevendido 30', fill: '#43E97B', fontSize: 11 }} />

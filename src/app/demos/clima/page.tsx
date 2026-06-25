@@ -283,7 +283,7 @@ export default function ClimaPage() {
                     <Tooltip
                       contentStyle={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)', borderRadius: 8 }}
                       labelStyle={{ color: 'var(--text-muted)' }}
-                      formatter={(v: number) => [`${v}°C`]}
+                      formatter={(v) => [`${v}°C`]}
                     />
                     <Area type="monotone" dataKey="temp" name="Temperatura" stroke="var(--primary)" fill="url(#tempGrad)" strokeWidth={2} dot={{ fill: 'var(--primary)', r: 3 }} />
                     <Area type="monotone" dataKey="feels" name="Sensação" stroke="var(--secondary)" fill="none" strokeWidth={1.5} strokeDasharray="4 4" dot={false} />
