@@ -1,20 +1,23 @@
+import { ReactNode } from 'react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ExternalLink, Github, CheckCircle2 } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Github, CheckCircle2, ArrowRight } from 'lucide-react'
 import { projects } from '@/data/projects'
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
 }
 
-export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
-  const project = projects.find((p) => p.slug === params.slug)
+export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const project = projects.find((p) => p.slug === slug)
   if (!project) notFound()
 
   const categoryColors = {
     dev: 'text-accent bg-accent/10 border-accent/30',
     dados: 'text-secondary bg-secondary/10 border-secondary/30',
     api: 'text-primary bg-primary/10 border-primary/30',
+    'case-study': 'text-yellow-400 bg-yellow-500/10 border-yellow-500/30',
   }
 
   return (
@@ -30,7 +33,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         <div className="bg-card border border-border rounded-2xl overflow-hidden mb-8">
           <div className="h-64 bg-gradient-to-br from-primary/20 via-card to-secondary/20 flex items-center justify-center">
             <span className="text-8xl">
-              {project.category === 'dados' ? '📊' : project.category === 'api' ? '🔌' : '💻'}
+              {project.category === 'case-study' ? '🏆' : project.category === 'dados' ? '📊' : project.category === 'api' ? '🔌' : '💻'}
             </span>
           </div>
         </div>
@@ -58,6 +61,82 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                 ))}
               </ul>
             </div>
+
+            {project.caseStudy && (
+              <div className="space-y-8 pt-2">
+                <CaseStudySection title="Contexto do Problema">
+                  <p className="text-slate-300 leading-relaxed">{project.caseStudy.problem}</p>
+                </CaseStudySection>
+
+                <CaseStudySection title="Objectivos">
+                  <ul className="space-y-2">
+                    {project.caseStudy.objectives.map((o) => (
+                      <li key={o} className="flex items-start gap-3 text-slate-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        {o}
+                      </li>
+                    ))}
+                  </ul>
+                </CaseStudySection>
+
+                <CaseStudySection title="Arquitectura">
+                  <p className="text-slate-300 leading-relaxed mb-5">{project.caseStudy.architecture}</p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    {project.caseStudy.diagramFlow.map((node, i) => (
+                      <div key={node} className="flex items-center gap-2">
+                        <div className="px-3 py-2 rounded-lg bg-darker border border-border text-slate-200 text-sm font-medium">
+                          {node}
+                        </div>
+                        {i < project.caseStudy!.diagramFlow.length - 1 && (
+                          <ArrowRight className="w-4 h-4 text-primary flex-shrink-0" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </CaseStudySection>
+
+                <CaseStudySection title="Processo de Desenvolvimento">
+                  <p className="text-slate-300 leading-relaxed">{project.caseStudy.process}</p>
+                </CaseStudySection>
+
+                <CaseStudySection title="Desafios Encontrados">
+                  <ul className="space-y-2">
+                    {project.caseStudy.challenges.map((c) => (
+                      <li key={c} className="flex items-start gap-3 text-slate-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-2 flex-shrink-0" />
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </CaseStudySection>
+
+                <CaseStudySection title="Solução Implementada">
+                  <p className="text-slate-300 leading-relaxed">{project.caseStudy.solution}</p>
+                </CaseStudySection>
+
+                <CaseStudySection title="Resultados">
+                  <ul className="space-y-2">
+                    {project.caseStudy.results.map((r) => (
+                      <li key={r} className="flex items-start gap-3 text-slate-300">
+                        <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                </CaseStudySection>
+
+                <CaseStudySection title="Lições Aprendidas">
+                  <ul className="space-y-2">
+                    {project.caseStudy.lessons.map((l) => (
+                      <li key={l} className="flex items-start gap-3 text-slate-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 flex-shrink-0" />
+                        {l}
+                      </li>
+                    ))}
+                  </ul>
+                </CaseStudySection>
+              </div>
+            )}
           </div>
 
           <div className="space-y-6">
@@ -111,6 +190,15 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </div>
         </div>
       </div>
+    </div>
+  )
+}
+
+function CaseStudySection({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <div>
+      <h2 className="text-lg font-semibold text-white mb-4">{title}</h2>
+      {children}
     </div>
   )
 }

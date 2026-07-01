@@ -1,8 +1,9 @@
 'use client'
 
 import { skills, timeline, certifications } from '@/data/skills'
-import { Download, MapPin, Calendar, Award, Briefcase, Phone, Mail, Linkedin } from 'lucide-react'
+import { MapPin, Calendar, Award, Briefcase, Phone, Mail, Linkedin } from 'lucide-react'
 import { useLang } from '@/context/LangContext'
+import CVDownloadMenu from '@/components/CVDownloadMenu'
 
 const categoryColors: Record<string, string> = {
   linguagem: 'text-primary border-primary/30 bg-primary/5',
@@ -13,7 +14,7 @@ const categoryColors: Record<string, string> = {
 }
 
 export default function SobrePage() {
-  const { t, lang } = useLang()
+  const { t } = useLang()
 
   const categoryLabels: Record<string, string> = {
     linguagem: t.about.cat_linguagem,
@@ -65,14 +66,7 @@ export default function SobrePage() {
               </a>
             </div>
 
-            <a
-              href={lang === 'en' ? '/cv-novo-en.html' : '/cv-novo.html'}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-xl hover:bg-primary/80 transition-colors"
-            >
-              <Download className="w-4 h-4" /> {t.about.download_cv}
-            </a>
+            <CVDownloadMenu label={t.about.download_cv} />
           </div>
         </div>
 

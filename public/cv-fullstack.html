@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV — Cláudio Roseta — Full Stack Developer</title>
+<style>
+  :root { --c: #1B3F72; --cl: #e8f0fa; --cb: #d0e0f0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10pt; color: #222; background: #fff; }
+
+  .page { max-width: 210mm; margin: 0 auto; padding: 14mm 14mm 10mm 14mm; }
+
+  /* HEADER */
+  .header { margin-bottom: 10px; }
+  .header h1 { font-size: 28pt; font-weight: 800; color: #111; letter-spacing: -0.5px; line-height: 1; }
+  .header h1 span { font-weight: 300; }
+  .header .title { font-size: 11pt; font-weight: 700; color: var(--c); letter-spacing: 1px; text-transform: uppercase; margin: 4px 0 8px; }
+  .header-line { border: none; border-top: 2px solid var(--c); margin: 8px 0; }
+  .header-contacts { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 8.5pt; color: #444; }
+  .header-contacts span { display: flex; align-items: center; gap: 4px; }
+  .header-contacts b { color: #111; }
+  a { color: var(--c); text-decoration: none; cursor: pointer; }
+  a:hover { text-decoration: underline; }
+
+  /* SECTIONS */
+  section { margin-top: 14px; }
+  .section-title {
+    font-size: 11pt; font-weight: 700; color: var(--c); text-transform: uppercase;
+    letter-spacing: 0.5px; padding-left: 8px;
+    border-left: 4px solid var(--c); margin-bottom: 8px;
+  }
+
+  /* SUMMARY */
+  .summary p { line-height: 1.6; color: #333; text-align: justify; }
+
+  /* EXPERIENCE */
+  .exp-entry { display: flex; gap: 14px; margin-bottom: 12px; }
+  .exp-date { min-width: 110px; font-size: 8pt; font-weight: 700; color: var(--c); padding-top: 1px; }
+  .exp-body { flex: 1; }
+  .exp-body h3 { font-size: 10pt; font-weight: 700; color: #111; }
+  .exp-body .exp-subtitle { font-size: 9pt; font-style: italic; color: var(--c); margin-bottom: 4px; }
+  .exp-body ul { padding-left: 14px; }
+  .exp-body ul li { font-size: 9pt; color: #333; line-height: 1.5; margin-bottom: 4px; }
+  .exp-body ul li b { color: #111; }
+
+  /* EDUCATION */
+  .edu-entry { display: flex; gap: 14px; margin-bottom: 8px; }
+  .edu-date { min-width: 110px; font-size: 8pt; font-weight: 700; color: var(--c); }
+  .edu-body h3 { font-size: 10pt; font-weight: 700; color: #111; }
+  .edu-body .edu-sub { font-size: 9pt; font-style: italic; color: var(--c); }
+  .edu-body p { font-size: 9pt; color: #444; margin-top: 2px; }
+
+  /* SKILLS TABLE */
+  .skills-table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  .skills-table th { background: #eaf1f8; color: var(--c); text-align: left; padding: 5px 8px; font-size: 9pt; }
+  .skills-table td { padding: 4px 8px; border-bottom: 1px solid #eee; vertical-align: middle; }
+  .skills-table td:first-child { font-weight: 600; color: #111; width: 150px; }
+  .bar-bg { background: #e0e0e0; border-radius: 4px; height: 6px; width: 100%; }
+  .bar-fill { background: var(--c); border-radius: 4px; height: 6px; }
+  .bar-pct { font-size: 8pt; color: #555; min-width: 28px; text-align: right; }
+
+  /* CERTIFICATIONS */
+  .cert-group { margin-bottom: 6px; }
+  .cert-group .cert-year { font-size: 9pt; font-weight: 700; color: var(--c); margin-bottom: 2px; }
+  .cert-group ul { padding-left: 14px; }
+  .cert-group ul li { font-size: 9pt; color: #333; line-height: 1.5; }
+
+  /* TWO COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  /* COMPETENCIES */
+  .comp-list { padding-left: 14px; }
+  .comp-list li { font-size: 9pt; color: #333; line-height: 1.7; }
+
+  /* COMP TABLE */
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  .comp-table td { padding: 5px 8px; border: 1px solid #e0e8f0; vertical-align: top; }
+  .comp-table td:first-child { font-weight: 700; color: var(--c); background: #f0f6fc; width: 34%; }
+
+  /* LANGUAGES */
+  .lang-row { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
+  .lang-name { font-size: 9pt; font-weight: 600; min-width: 70px; }
+  .lang-bar { flex: 1; background: #e0e0e0; border-radius: 4px; height: 6px; }
+  .lang-bar-fill { background: var(--c); border-radius: 4px; height: 6px; }
+  .lang-pct { font-size: 8pt; color: #555; min-width: 32px; }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  .btn-pdf {
+    position: fixed; top: 24px; left: 24px; z-index: 999;
+    background: var(--c); color: #fff; border: none; border-radius: 8px;
+    padding: 12px 22px; font-size: 10pt; font-weight: 700; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px;
+    transition: background 0.2s;
+  }
+  .btn-pdf:hover { background: #142e55; }
+  @media print {
+    .btn-pdf { display: none; }
+    body { font-size: 9pt; }
+    .page { padding: 10mm 12mm 0 12mm; }
+    @page { margin: 8mm 0 0 0; size: A4; }
+    html, body { height: auto; overflow: visible; }
+
+    .exp-entry { page-break-inside: avoid; }
+    .edu-entry { page-break-inside: avoid; }
+    .cert-group { page-break-inside: avoid; }
+    .comp-table tr { page-break-inside: avoid; }
+    .skills-table thead { page-break-after: avoid; }
+    .skills-table tr { page-break-inside: avoid; }
+    .section-title { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>CLÁUDIO <span>Roseta</span></h1>
+    <div class="title">Full Stack Developer | Software Engineer</div>
+    <hr class="header-line" />
+    <div class="header-contacts">
+      <span><b>Telefone:</b> <a href="tel:+258846166958">+258 84 616 6958</a> / <a href="tel:+258833241082">+258 83 324 1082</a></span>
+      <span><b>Email:</b> <a href="mailto:claudioroseta@gmail.com">claudioroseta@gmail.com</a></span>
+      <span><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/claudioroseta/" target="_blank">linkedin.com/in/claudioroseta</a></span>
+      <span><b>GitHub:</b> <a href="https://github.com/cjroseta" target="_blank">github.com/cjroseta</a></span>
+      <span><b>Portfólio:</b> <a href="https://portfolio-seven-pi-fxouvmtbvc.vercel.app" target="_blank">portfolio-seven-pi-fxouvmtbvc.vercel.app</a></span>
+      <span><b>Naturalidade:</b> Beira - Sofala &nbsp;|&nbsp; <b>Nacionalidade:</b> Moçambicana</span>
+      <span><b>Endereço:</b> Maputo, B. Ferroviário, Q. 27</span>
+    </div>
+  </div>
+
+  <!-- RESUMO -->
+  <section class="summary">
+    <div class="section-title">Perfil Profissional</div>
+    <p>Full Stack Developer com mais de 6 anos de experiência a desenhar e construir sistemas e plataformas de dados para negócio, unindo front-end (React, TypeScript), back-end (Node.js, Express, Python) e bases de dados relacionais (PostgreSQL, MySQL). Construí do zero uma plataforma de Business Intelligence com 8 dashboards interactivos, desenvolvi integrações via REST APIs e liderei a migração de um ERP crítico (Odoo) para uma nova versão e infraestrutura cloud sem interrupção da operação.</p>
+    <p style="margin-top:6px;">Trabalho confortável em todo o ciclo de desenvolvimento — arquitectura, implementação, integrações, controlo de versões (Git/GitHub) e deploy — combinando esta base técnica com pensamento de produto orientado a negócio. Cada sistema que construo nasce de um problema real de uma equipa (Vendas, Finanças, Operações) e é avaliado pelo valor concreto que entrega.</p>
+    <p style="margin-top:6px;">Procuro uma posição de Full Stack Developer, Software Engineer ou Integration Developer onde possa continuar a construir sistemas que resolvem problemas reais de negócio, com espaço para aprofundar arquitecturas modernas e integrações complexas.</p>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section>
+    <div class="section-title">Experiência Profissional</div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Mar 2025 — Presente</div>
+      <div class="exp-body">
+        <h3>Dalima, Lda — Maputo</h3>
+        <div class="exp-subtitle">Software Engineer — Full Stack &amp; Integrações</div>
+        <ul>
+          <li><b>Plataforma de Business Intelligence:</b> a gestão dependia de relatórios manuais e dispersos entre Excel e o ERP para acompanhar o negócio. Desenhei e construí do zero uma plataforma com <b>8 dashboards</b> (Executivo, Comercial, Financeiro, Financeiro Detalhado, Vendas, Performance, Rede de Painéis e Estado de Painéis) em <b>React, TypeScript, Node.js, Express e PostgreSQL</b>, consumindo dados via REST APIs. Resultado: gestão com visibilidade em tempo real sobre vendas, finanças e operações, sem exportações manuais.</li>
+          <li><b>Integrações &amp; APIs sobre o ERP:</b> desenvolvi módulos e integrações personalizadas em Python/XML sobre o Odoo, seguindo a arquitectura nativa da plataforma, com fluxo de desenvolvimento em <b>Git/GitHub</b> e deploy em Odoo SH.</li>
+          <li><b>Automação (RPA):</b> uma limitação de timeout impedia a limpeza de uma base com mais de <b>500.000 utilizadores públicos obsoletos</b>, degradando a performance do sistema. Desenvolvi um RPA que automatizou a remoção em lote, contornando a limitação sem intervenção manual.</li>
+          <li><b>Optimização de custos:</b> assumi internamente a gestão do ambiente ERP anteriormente subcontratada, eliminando um custo recorrente de <b>~300€/mês</b>.</li>
+          <li><b>Websites &amp; infraestrutura:</b> desenvolvimento e actualização do website institucional, administração de Microsoft 365 e suporte técnico transversal, incluindo o apoio tecnológico à abertura de uma nova empresa do grupo.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Out 2024 — Mar 2025</div>
+      <div class="exp-body">
+        <h3>Grupo CB — Matola</h3>
+        <div class="exp-subtitle">Analista de Dados</div>
+        <ul>
+          <li>Extracção, limpeza e tratamento de dados de múltiplos sistemas internos do grupo, consolidando informação dispersa numa base fiável para análise;</li>
+          <li>Desenvolvimento de relatórios e dashboards de apoio à decisão para as áreas de vendas, finanças e operações, com monitorização contínua de KPIs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Jul 2023 — Out 2024</div>
+      <div class="exp-body">
+        <h3>SMP, SA — Maputo</h3>
+        <div class="exp-subtitle">Técnico de Novos Projectos (Consultor ERP / Desenvolvimento Web)</div>
+        <ul>
+          <li>Concepção e implementação de <b>4 websites corporativos</b> (SMP, Mozago, Isection, Padel Club), da estrutura ao deploy;</li>
+          <li>Configuração e personalização de módulos de CRM no Odoo, com desenvolvimento de novos módulos para suportar operações comerciais;</li>
+          <li>Administração de sistemas de terceiros integrados (Hik Connect, Hikvision, Book 24) e formação interna sobre o ERP.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Jan 2022 — Mai 2023</div>
+      <div class="exp-body">
+        <h3>Cometal, SARL — Matola</h3>
+        <div class="exp-subtitle">Desenvolvedor de Software &amp; Analista de Dados</div>
+        <ul>
+          <li>Desenvolvimento e implementação de um sistema de gestão de operações (ordens de serviço, stock, compras, vendas, manutenção, contas a receber/pagar), substituindo processos manuais em Excel;</li>
+          <li>Administração do sistema de assiduidade MIPS e tratamento de dados em Power BI.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Fev 2019 — Nov 2021</div>
+      <div class="exp-body">
+        <h3>Paytech, S.A. — Maputo</h3>
+        <div class="exp-subtitle">Analista de Dados</div>
+        <ul>
+          <li>Extracção, validação e tratamento de dados de bilhética e facturação, eliminando discrepâncias entre canais de venda;</li>
+          <li>Produção de relatórios periódicos de vendas, operações e finanças para marketing e gestão.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCAÇÃO -->
+  <section>
+    <div class="section-title">Formação Académica</div>
+    <div class="edu-entry">
+      <div class="edu-date">2025 — Presente</div>
+      <div class="edu-body">
+        <h3>Universidade Aberta ISCED</h3>
+        <div class="edu-sub">2º ano de Licenciatura em Engenharia Informática (Em curso)</div>
+      </div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-date">2011</div>
+      <div class="edu-body">
+        <h3>Escola João XXIII — Beira</h3>
+        <div class="edu-sub">12ª Classe — Ensino Secundário</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES TÉCNICAS -->
+  <section>
+    <div class="section-title">Habilidades Técnicas</div>
+    <table class="skills-table">
+      <thead>
+        <tr>
+          <th colspan="3">Linguagens &amp; Frameworks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>JavaScript</td><td><div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div></td><td class="bar-pct">75%</td></tr>
+        <tr><td>TypeScript</td><td><div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div></td><td class="bar-pct">75%</td></tr>
+        <tr><td>React</td><td><div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div></td><td class="bar-pct">75%</td></tr>
+        <tr><td>Node.js / Express</td><td><div class="bar-bg"><div class="bar-fill" style="width:70%"></div></div></td><td class="bar-pct">70%</td></tr>
+        <tr><td>Python</td><td><div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div></td><td class="bar-pct">80%</td></tr>
+        <tr><td>PHP</td><td><div class="bar-bg"><div class="bar-fill" style="width:55%"></div></div></td><td class="bar-pct">55%</td></tr>
+        <tr><td>Tailwind CSS</td><td><div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div></td><td class="bar-pct">75%</td></tr>
+      </tbody>
+      <thead>
+        <tr><th colspan="3">Integrações, ERP &amp; Ferramentas</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>REST APIs</td><td><div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div></td><td class="bar-pct">75%</td></tr>
+        <tr><td>Git &amp; GitHub</td><td><div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div></td><td class="bar-pct">80%</td></tr>
+        <tr><td>Odoo Framework (ORM)</td><td><div class="bar-bg"><div class="bar-fill" style="width:90%"></div></div></td><td class="bar-pct">90%</td></tr>
+        <tr><td>Odoo SH</td><td><div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div></td><td class="bar-pct">85%</td></tr>
+        <tr><td>Power BI</td><td><div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div></td><td class="bar-pct">75%</td></tr>
+        <tr><td>Postman</td><td><div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div></td><td class="bar-pct">60%</td></tr>
+      </tbody>
+      <thead>
+        <tr><th colspan="3">Bases de Dados</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>PostgreSQL</td><td><div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div></td><td class="bar-pct">80%</td></tr>
+        <tr><td>MySQL</td><td><div class="bar-bg"><div class="bar-fill" style="width:55%"></div></div></td><td class="bar-pct">55%</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- APTIDÕES E COMPETÊNCIAS -->
+  <section>
+    <div class="section-title">Aptidões e Competências Técnicas</div>
+    <table class="comp-table">
+      <tr>
+        <td>Desenvolvimento Full Stack</td>
+        <td>Construção de plataformas web completas com React, TypeScript, Node.js, Express e Tailwind CSS, do front-end à API.</td>
+      </tr>
+      <tr>
+        <td>Integrações &amp; APIs</td>
+        <td>Desenho e consumo de REST APIs, integração entre sistemas internos (ERP, websites, ferramentas de terceiros).</td>
+      </tr>
+      <tr>
+        <td>Business Intelligence</td>
+        <td>Concepção de plataformas de dados e dashboards executivos, comerciais e financeiros com PostgreSQL e Power BI.</td>
+      </tr>
+      <tr>
+        <td>ERP Odoo</td>
+        <td>Migração de versões, desenvolvimento de módulos personalizados e customização com Python, XML e PostgreSQL.</td>
+      </tr>
+      <tr>
+        <td>Controlo de Versões &amp; Deploy</td>
+        <td>Fluxo de desenvolvimento em Git/GitHub, deploy em ambientes cloud (Odoo SH, Vercel).</td>
+      </tr>
+      <tr>
+        <td>Competências Pessoais</td>
+        <td>Pensamento analítico e orientação a resultados; comunicação directa com áreas de negócio; autonomia e capacidade de assumir ownership técnico de projectos de ponta a ponta.</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- CERTIFICAÇÕES + IDIOMAS -->
+  <div class="two-col">
+    <section>
+      <div class="section-title">Certificações</div>
+
+      <div class="cert-group">
+        <div class="cert-year">2025 — Xperiun (Online)</div>
+        <ul><li>DAX Fundamental</li></ul>
+      </div>
+      <div class="cert-group">
+        <div class="cert-year">2023–2024 — Udemy</div>
+        <ul>
+          <li>Power BI: Do Básico ao Avançado — Stefano Larmelina (13.5h)</li>
+          <li>Curso Completo de Microsoft Excel — João Paulo de Lira (11.5h)</li>
+          <li>Mastering Odoo Development — Odoo Class Video (10.5h)</li>
+          <li>Master Odoo Studio — Quisar Aldomur (4h)</li>
+        </ul>
+      </div>
+      <div class="cert-group">
+        <div class="cert-year">2019–2023 — Danki Code (Online)</div>
+        <ul>
+          <li>Desenvolvimento Web Completo (84h)</li>
+          <li>Webmaster Front-End Completo (81h)</li>
+          <li>Webmaster Front-End Moderno 2.0 (10h)</li>
+          <li>PHP Jedai (27h)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Competências Linguísticas</div>
+      <div style="margin-bottom: 16px;">
+        <div class="lang-row">
+          <span class="lang-name">Português</span>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:100%"></div></div>
+          <span class="lang-pct">100%</span>
+        </div>
+        <div class="lang-row">
+          <span class="lang-name">Inglês</span>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:50%"></div></div>
+          <span class="lang-pct">50%</span>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top: 14px;">Outras Competências</div>
+      <ul class="comp-list">
+        <li>Arquitectura e desenho de sistemas orientados a negócio;</li>
+        <li>Automação de processos (RPA);</li>
+        <li>Gestão de projectos tecnológicos e capacitação de equipas;</li>
+        <li>Administração de infraestrutura digital (Microsoft 365, redes).</li>
+      </ul>
+
+      <div class="section-title" style="margin-top: 14px;">Referências</div>
+      <p style="font-size:9pt; color:#444; font-style:italic;">Disponíveis mediante solicitação.</p>
+
+    </section>
+  </div>
+
+</div>
+
+<button class="btn-pdf" onclick="downloadPDF()">
+  ⬇ Descarregar PDF
+</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  function downloadPDF() {
+    const btn = document.querySelector('.btn-pdf');
+    btn.style.display = 'none';
+    const el = document.querySelector('.page');
+    html2pdf().set({
+      margin: [8, 0, 8, 0],
+      filename: 'CV_ClaudioRoseta_FullStack.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    }).from(el).save().then(() => {
+      btn.style.display = 'flex';
+    });
+  }
+</script>
+
+</body>
+</html>

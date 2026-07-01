@@ -1,11 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, Download } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useLang } from '@/context/LangContext'
+import CVDownloadMenu from '@/components/CVDownloadMenu'
 
 export default function HeroSection() {
-  const { t, lang } = useLang()
+  const { t } = useLang()
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -48,14 +49,7 @@ export default function HeroSection() {
           >
             {t.hero.cta_projects} <ArrowRight className="w-5 h-5" />
           </Link>
-          <a
-            href={lang === 'en' ? '/cv-novo-en.html' : '/cv-novo.html'}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-border text-text font-semibold rounded-xl hover:border-primary/50 hover:bg-primary/5 transition-all text-lg"
-          >
-            <Download className="w-5 h-5" /> {t.hero.cta_cv}
-          </a>
+          <CVDownloadMenu label={t.hero.cta_cv} variant="outline" />
         </div>
 
         <div className="mt-16 flex justify-center gap-8 text-faint text-sm">

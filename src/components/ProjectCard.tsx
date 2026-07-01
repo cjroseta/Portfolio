@@ -6,12 +6,14 @@ const categoryColors = {
   dev: 'text-accent bg-accent/10 border-accent/30',
   dados: 'text-secondary bg-secondary/10 border-secondary/30',
   api: 'text-primary bg-primary/10 border-primary/30',
+  'case-study': 'text-yellow-400 bg-yellow-500/10 border-yellow-500/30',
 }
 
 const categoryLabels = {
   dev: 'Dev',
   dados: 'Dados',
   api: 'API',
+  'case-study': 'Case Study',
 }
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -83,6 +85,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 }
 
 function getEmoji(category: string) {
+  if (category === 'case-study') return '🏆'
   if (category === 'dados') return '📊'
   if (category === 'api') return '🔌'
   return '💻'

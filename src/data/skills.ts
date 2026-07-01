@@ -6,40 +6,43 @@ export interface Skill {
 }
 
 export const skills: Skill[] = [
-  // Linguagens & Frameworks
+  // Linguagens
+  { name: 'Python', level: 80, category: 'linguagem', icon: '🐍' },
+  { name: 'TypeScript', level: 75, category: 'linguagem', icon: '🔷' },
+  { name: 'JavaScript', level: 75, category: 'linguagem', icon: '⚡' },
   { name: 'PHP', level: 55, category: 'linguagem', icon: '🐘' },
-  { name: 'JavaScript', level: 30, category: 'linguagem', icon: '⚡' },
-  { name: 'Python', level: 40, category: 'linguagem', icon: '🐍' },
-  { name: 'Java', level: 45, category: 'linguagem', icon: '☕' },
-  { name: 'Codeigniter', level: 65, category: 'framework', icon: '🔥' },
+  { name: 'Java', level: 40, category: 'linguagem', icon: '☕' },
+  // Frameworks & Libs
+  { name: 'Odoo Framework (ORM)', level: 90, category: 'framework', icon: '🧩' },
+  { name: 'React', level: 75, category: 'framework', icon: '⚛️' },
+  { name: 'Node.js / Express', level: 70, category: 'framework', icon: '🟢' },
+  { name: 'Tailwind CSS', level: 75, category: 'framework', icon: '🎨' },
+  { name: 'jQuery', level: 65, category: 'framework', icon: '💎' },
   { name: 'Laravel', level: 45, category: 'framework', icon: '🔺' },
-  { name: 'jQuery', level: 95, category: 'framework', icon: '💎' },
-  { name: 'Ajax', level: 73, category: 'framework', icon: '🔄' },
-  { name: 'VueJs', level: 60, category: 'framework', icon: '💚' },
-  { name: 'SpringBoot', level: 26, category: 'framework', icon: '🍃' },
   // Dados & Analytics
   { name: 'Power BI', level: 75, category: 'dados', icon: '📊' },
-  { name: 'Jupyter Notebook', level: 95, category: 'dados', icon: '📓' },
-  { name: 'PyCharm', level: 73, category: 'dados', icon: '🐼' },
-  { name: 'Excel', level: 60, category: 'dados', icon: '📈' },
+  { name: 'Odoo Spreadsheets/BI', level: 85, category: 'dados', icon: '📈' },
+  { name: 'Jupyter Notebook', level: 80, category: 'dados', icon: '📓' },
+  { name: 'Excel', level: 65, category: 'dados', icon: '📉' },
   // Ferramentas
-  { name: 'Odoo Studio', level: 70, category: 'ferramenta', icon: '⚙️' },
-  { name: 'Visual Studio', level: 85, category: 'ferramenta', icon: '💻' },
-  { name: 'Git & GitHub', level: 30, category: 'ferramenta', icon: '🐙' },
-  { name: 'Postman', level: 32, category: 'ferramenta', icon: '📬' },
-  { name: 'Eclipse', level: 45, category: 'ferramenta', icon: '🌙' },
+  { name: 'Git & GitHub', level: 80, category: 'ferramenta', icon: '🐙' },
+  { name: 'Odoo SH', level: 85, category: 'ferramenta', icon: '☁️' },
+  { name: 'Odoo Studio', level: 80, category: 'ferramenta', icon: '⚙️' },
+  { name: 'REST APIs', level: 75, category: 'ferramenta', icon: '🔌' },
+  { name: 'Visual Studio Code', level: 85, category: 'ferramenta', icon: '💻' },
+  { name: 'Postman', level: 60, category: 'ferramenta', icon: '📬' },
   // Banco de Dados
+  { name: 'PostgreSQL', level: 80, category: 'banco', icon: '🐘' },
   { name: 'MySQL', level: 55, category: 'banco', icon: '🗄️' },
-  { name: 'PostgreSQL', level: 45, category: 'banco', icon: '🐘' },
-  { name: 'MS Access', level: 75, category: 'banco', icon: '🗃️' },
+  { name: 'MS Access', level: 50, category: 'banco', icon: '🗃️' },
 ]
 
 export const timeline = [
   {
     year: 'Mar 2025 — Presente',
-    title: 'Gestor de Redes/Conteúdo & Analista de Dados',
+    title: 'Software Engineer — ERP, Integrações & Business Intelligence',
     company: 'Dalima, Lda — Maputo',
-    description: 'Gestão da presença digital e execução de campanhas digitais. Extração, limpeza e análise de dados do sistema Odoo. Criação de dashboards e relatórios interactivos com Odoo Spreadsheets e Power BI. Análise de negócio para Vendas e Finanças, definição de KPIs e garantia da qualidade e governança de dados. Personalização de relatórios e visualizações com Odoo Studio.',
+    description: 'Liderei a migração completa do ERP Odoo da v17 para a v18 e a transição para Odoo SH, sem interrupção da operação, incluindo a preparação técnica para a migração à v19. Desenvolvi módulos Odoo personalizados e integrações via API seguindo a arquitectura nativa da plataforma (Python, XML, PostgreSQL), com fluxo de desenvolvimento em GitHub + Odoo SH. Construí do zero uma plataforma de Business Intelligence com 8 dashboards (Executivo, Comercial, Financeiro, Financeiro Detalhado, Vendas, Performance e Rede/Estado de Painéis) usando React, TypeScript, Node.js, Express e PostgreSQL. Desenvolvi um RPA que eliminou mais de 500.000 utilizadores públicos obsoletos do Odoo, contornando uma limitação de timeout da plataforma. Descontinuei um fornecedor externo de gestão do ambiente Odoo, eliminando um custo recorrente de ~300€/mês. Adicionalmente, gerido a administração de Microsoft 365, infraestrutura digital, websites corporativos e suporte tecnológico a toda a empresa, incluindo a abertura de uma nova empresa do grupo.',
   },
   {
     year: 'Out 2024 — Jan 2025',

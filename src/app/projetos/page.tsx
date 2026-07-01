@@ -5,7 +5,7 @@ import { projects } from '@/data/projects'
 import ProjectCard from '@/components/ProjectCard'
 import { useLang } from '@/context/LangContext'
 
-type Filter = 'todos' | 'dev' | 'dados' | 'api'
+type Filter = 'todos' | 'case-study' | 'dev' | 'dados' | 'api'
 
 export default function ProjetosPage() {
   const { t } = useLang()
@@ -13,6 +13,7 @@ export default function ProjetosPage() {
 
   const filters: { value: Filter; label: string }[] = [
     { value: 'todos', label: t.projects.filter_all },
+    { value: 'case-study', label: t.projects.filter_case },
     { value: 'dev', label: t.projects.filter_dev },
     { value: 'dados', label: t.projects.filter_data },
     { value: 'api', label: t.projects.filter_api },

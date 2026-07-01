@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV — Cláudio Roseta — Odoo Developer / ERP Specialist</title>
+<style>
+  :root { --c: #1B3F72; --cl: #e8f0fa; --cb: #d0e0f0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10pt; color: #222; background: #fff; }
+
+  .page { max-width: 210mm; margin: 0 auto; padding: 14mm 14mm 10mm 14mm; }
+
+  /* HEADER */
+  .header { margin-bottom: 10px; }
+  .header h1 { font-size: 28pt; font-weight: 800; color: #111; letter-spacing: -0.5px; line-height: 1; }
+  .header h1 span { font-weight: 300; }
+  .header .title { font-size: 11pt; font-weight: 700; color: var(--c); letter-spacing: 1px; text-transform: uppercase; margin: 4px 0 8px; }
+  .header-line { border: none; border-top: 2px solid var(--c); margin: 8px 0; }
+  .header-contacts { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 8.5pt; color: #444; }
+  .header-contacts span { display: flex; align-items: center; gap: 4px; }
+  .header-contacts b { color: #111; }
+  a { color: var(--c); text-decoration: none; cursor: pointer; }
+  a:hover { text-decoration: underline; }
+
+  /* SECTIONS */
+  section { margin-top: 14px; }
+  .section-title {
+    font-size: 11pt; font-weight: 700; color: var(--c); text-transform: uppercase;
+    letter-spacing: 0.5px; padding-left: 8px;
+    border-left: 4px solid var(--c); margin-bottom: 8px;
+  }
+
+  /* SUMMARY */
+  .summary p { line-height: 1.6; color: #333; text-align: justify; }
+
+  /* EXPERIENCE */
+  .exp-entry { display: flex; gap: 14px; margin-bottom: 12px; }
+  .exp-date { min-width: 110px; font-size: 8pt; font-weight: 700; color: var(--c); padding-top: 1px; }
+  .exp-body { flex: 1; }
+  .exp-body h3 { font-size: 10pt; font-weight: 700; color: #111; }
+  .exp-body .exp-subtitle { font-size: 9pt; font-style: italic; color: var(--c); margin-bottom: 4px; }
+  .exp-body ul { padding-left: 14px; }
+  .exp-body ul li { font-size: 9pt; color: #333; line-height: 1.5; margin-bottom: 4px; }
+  .exp-body ul li b { color: #111; }
+
+  /* EDUCATION */
+  .edu-entry { display: flex; gap: 14px; margin-bottom: 8px; }
+  .edu-date { min-width: 110px; font-size: 8pt; font-weight: 700; color: var(--c); }
+  .edu-body h3 { font-size: 10pt; font-weight: 700; color: #111; }
+  .edu-body .edu-sub { font-size: 9pt; font-style: italic; color: var(--c); }
+  .edu-body p { font-size: 9pt; color: #444; margin-top: 2px; }
+
+  /* SKILLS TABLE */
+  .skills-table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  .skills-table th { background: #eaf1f8; color: var(--c); text-align: left; padding: 5px 8px; font-size: 9pt; }
+  .skills-table td { padding: 4px 8px; border-bottom: 1px solid #eee; vertical-align: middle; }
+  .skills-table td:first-child { font-weight: 600; color: #111; width: 150px; }
+  .bar-bg { background: #e0e0e0; border-radius: 4px; height: 6px; width: 100%; }
+  .bar-fill { background: var(--c); border-radius: 4px; height: 6px; }
+  .bar-pct { font-size: 8pt; color: #555; min-width: 28px; text-align: right; }
+
+  /* CERTIFICATIONS */
+  .cert-group { margin-bottom: 6px; }
+  .cert-group .cert-year { font-size: 9pt; font-weight: 700; color: var(--c); margin-bottom: 2px; }
+  .cert-group ul { padding-left: 14px; }
+  .cert-group ul li { font-size: 9pt; color: #333; line-height: 1.5; }
+
+  /* TWO COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  /* COMPETENCIES */
+  .comp-list { padding-left: 14px; }
+  .comp-list li { font-size: 9pt; color: #333; line-height: 1.7; }
+
+  /* COMP TABLE */
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  .comp-table td { padding: 5px 8px; border: 1px solid #e0e8f0; vertical-align: top; }
+  .comp-table td:first-child { font-weight: 700; color: var(--c); background: #f0f6fc; width: 34%; }
+
+  /* LANGUAGES */
+  .lang-row { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
+  .lang-name { font-size: 9pt; font-weight: 600; min-width: 70px; }
+  .lang-bar { flex: 1; background: #e0e0e0; border-radius: 4px; height: 6px; }
+  .lang-bar-fill { background: var(--c); border-radius: 4px; height: 6px; }
+  .lang-pct { font-size: 8pt; color: #555; min-width: 32px; }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  .btn-pdf {
+    position: fixed; top: 24px; left: 24px; z-index: 999;
+    background: var(--c); color: #fff; border: none; border-radius: 8px;
+    padding: 12px 22px; font-size: 10pt; font-weight: 700; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px;
+    transition: background 0.2s;
+  }
+  .btn-pdf:hover { background: #142e55; }
+  @media print {
+    .btn-pdf { display: none; }
+    body { font-size: 9pt; }
+    .page { padding: 10mm 12mm 0 12mm; }
+    @page { margin: 8mm 0 0 0; size: A4; }
+    html, body { height: auto; overflow: visible; }
+
+    .exp-entry { page-break-inside: avoid; }
+    .edu-entry { page-break-inside: avoid; }
+    .cert-group { page-break-inside: avoid; }
+    .comp-table tr { page-break-inside: avoid; }
+    .skills-table thead { page-break-after: avoid; }
+    .skills-table tr { page-break-inside: avoid; }
+    .section-title { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>CLÁUDIO <span>Roseta</span></h1>
+    <div class="title">Odoo Developer | ERP Specialist</div>
+    <hr class="header-line" />
+    <div class="header-contacts">
+      <span><b>Telefone:</b> <a href="tel:+258846166958">+258 84 616 6958</a> / <a href="tel:+258833241082">+258 83 324 1082</a></span>
+      <span><b>Email:</b> <a href="mailto:claudioroseta@gmail.com">claudioroseta@gmail.com</a></span>
+      <span><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/claudioroseta/" target="_blank">linkedin.com/in/claudioroseta</a></span>
+      <span><b>GitHub:</b> <a href="https://github.com/cjroseta" target="_blank">github.com/cjroseta</a></span>
+      <span><b>Portfólio:</b> <a href="https://portfolio-seven-pi-fxouvmtbvc.vercel.app" target="_blank">portfolio-seven-pi-fxouvmtbvc.vercel.app</a></span>
+      <span><b>Naturalidade:</b> Beira - Sofala &nbsp;|&nbsp; <b>Nacionalidade:</b> Moçambicana</span>
+      <span><b>Endereço:</b> Maputo, B. Ferroviário, Q. 27</span>
+    </div>
+  </div>
+
+  <!-- RESUMO -->
+  <section class="summary">
+    <div class="section-title">Perfil Profissional</div>
+    <p>Odoo Developer / ERP Specialist com mais de 6 anos de experiência em sistemas de gestão empresarial, incluindo a liderança técnica da migração completa de um ambiente Odoo da v17 para a v18 e a transição para <b>Odoo SH</b>, sem interrupção da operação, com preparação já em curso para a v19. Desenvolvo módulos personalizados seguindo a arquitectura nativa da plataforma (<b>Python, ORM, XML, PostgreSQL</b>), com fluxo de trabalho em Git/GitHub e deploy em ambiente cloud.</p>
+    <p style="margin-top:6px;">Para além da customização de módulos, resolvo problemas estruturais da plataforma — desenvolvi um RPA que eliminou uma limitação de timeout do Odoo, removendo mais de 500.000 registos obsoletos, e assumi internamente a gestão do ambiente ERP, eliminando a dependência de um fornecedor externo. Como diferencial, construo camadas de Business Intelligence e integrações à volta do ERP com React, Node.js e REST APIs, o que me permite entregar soluções completas — do backend Odoo à visualização de dados para o negócio.</p>
+    <p style="margin-top:6px;">Procuro uma posição de Odoo Developer, ERP Specialist ou Business Systems Developer onde possa aplicar esta combinação de profundidade técnica em Odoo e visão de arquitectura full-stack a projectos de migração, customização e integração de sistemas.</p>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section>
+    <div class="section-title">Experiência Profissional</div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Mar 2025 — Presente</div>
+      <div class="exp-body">
+        <h3>Dalima, Lda — Maputo</h3>
+        <div class="exp-subtitle">Odoo Developer / ERP Specialist</div>
+        <ul>
+          <li><b>Migração de versão e infraestrutura:</b> liderei a migração completa do ERP Odoo da v17 para a <b>v18</b> e a transição para <b>Odoo SH</b>, com zero interrupção da operação, incluindo a preparação técnica para a migração à v19;</li>
+          <li><b>Desenvolvimento de módulos:</b> concepção e desenvolvimento de módulos personalizados seguindo a arquitectura nativa do Odoo (<b>Python, ORM, XML, PostgreSQL</b>), com fluxo de desenvolvimento em <b>Git/GitHub</b> e deploy contínuo em Odoo SH;</li>
+          <li><b>Integrações &amp; APIs:</b> desenho e implementação de integrações entre o Odoo e sistemas externos via API, cobrindo necessidades não atendidas pelos módulos nativos;</li>
+          <li><b>Performance &amp; automação (RPA):</b> uma limitação de timeout da plataforma impedia a limpeza de uma base com mais de <b>500.000 utilizadores públicos obsoletos</b>. Desenvolvi um RPA que automatizou a remoção em lote, contornando a limitação e libertando performance do sistema;</li>
+          <li><b>Customização com Odoo Studio:</b> adaptação de dashboards, relatórios e campos específicos não cobertos pelas funcionalidades nativas, para as áreas de Vendas e Finanças;</li>
+          <li><b>Gestão do ambiente &amp; custos:</b> internalização da gestão do ambiente Odoo, anteriormente subcontratada a um fornecedor externo por <b>~300€/mês</b>, eliminando esse custo recorrente;</li>
+          <li><b>Diferencial full-stack:</b> desenho e construção de uma plataforma de Business Intelligence complementar ao Odoo, com <b>8 dashboards</b> em React, TypeScript, Node.js, Express e PostgreSQL.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Jul 2023 — Out 2024</div>
+      <div class="exp-body">
+        <h3>SMP, SA — Maputo</h3>
+        <div class="exp-subtitle">Técnico de Novos Projectos (Consultor ERP)</div>
+        <ul>
+          <li>Administração e manutenção do ERP <b>Odoo</b> e de sistemas integrados (Hik Connect, Hikvision, Book 24);</li>
+          <li>Configuração e personalização de <b>módulos de CRM</b> conforme requisitos da empresa, com desenvolvimento de novos módulos para as principais operações comerciais;</li>
+          <li>Condução de sessões de formação interna sobre funcionalidades e boas práticas do Odoo;</li>
+          <li>Implementação de 4 websites corporativos (SMP, Mozago, Isection, Padel Club) como projectos complementares.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Out 2024 — Mar 2025</div>
+      <div class="exp-body">
+        <h3>Grupo CB — Matola</h3>
+        <div class="exp-subtitle">Analista de Dados</div>
+        <ul>
+          <li>Extracção, limpeza e tratamento de dados de sistemas internos do grupo; desenvolvimento de relatórios e dashboards para vendas, finanças e operações.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Jan 2022 — Mai 2023</div>
+      <div class="exp-body">
+        <h3>Cometal, SARL — Matola</h3>
+        <div class="exp-subtitle">Analista de Dados &amp; Desenvolvedor de Software</div>
+        <ul>
+          <li>Desenvolvimento de sistema de gestão de operações (ordens de serviço, stock, compras, vendas, manutenção, contas a receber/pagar) e administração do sistema de assiduidade MIPS.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-date">Fev 2019 — Nov 2021</div>
+      <div class="exp-body">
+        <h3>Paytech, S.A. — Maputo</h3>
+        <div class="exp-subtitle">Analista de Dados</div>
+        <ul>
+          <li>Extracção, validação e tratamento de dados de bilhética e facturação; produção de relatórios periódicos para gestão.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCAÇÃO -->
+  <section>
+    <div class="section-title">Formação Académica</div>
+    <div class="edu-entry">
+      <div class="edu-date">2025 — Presente</div>
+      <div class="edu-body">
+        <h3>Universidade Aberta ISCED</h3>
+        <div class="edu-sub">2º ano de Licenciatura em Engenharia Informática (Em curso)</div>
+      </div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-date">2011</div>
+      <div class="edu-body">
+        <h3>Escola João XXIII — Beira</h3>
+        <div class="edu-sub">12ª Classe — Ensino Secundário</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES TÉCNICAS -->
+  <section>
+    <div class="section-title">Habilidades Técnicas</div>
+    <table class="skills-table">
+      <thead>
+        <tr>
+          <th colspan="3">Odoo &amp; ERP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Odoo Framework (ORM)</td><td><div class="bar-bg"><div class="bar-fill" style="width:90%"></div></div></td><td class="bar-pct">90%</td></tr>
+        <tr><td>Odoo SH (deploy/infra)</td><td><div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div></td><td class="bar-pct">85%</td></tr>
+        <tr><td>Odoo Studio</td><td><div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div></td><td class="bar-pct">80%</td></tr>
+        <tr><td>Migração de versões (v17→v18→v19)</td><td><div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div></td><td class="bar-pct">85%</td></tr>
+        <tr><td>Módulos CRM/Vendas customizados</td><td><div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div></td><td class="bar-pct">80%</td></tr>
+      </tbody>
+      <thead>
+        <tr><th colspan="3">Linguagens &amp; Bases de Dados</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Python</td><td><div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div></td><td class="bar-pct">80%</td></tr>
+        <tr><td>XML</td><td><div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div></td><td class="bar-pct">80%</td></tr>
+        <tr><td>PostgreSQL</td><td><div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div></td><td class="bar-pct">80%</td></tr>
+        <tr><td>Git &amp; GitHub</td><td><div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div></td><td class="bar-pct">80%</td></tr>
+      </tbody>
+      <thead>
+        <tr><th colspan="3">Diferencial Full Stack</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>React / TypeScript</td><td><div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div></td><td class="bar-pct">75%</td></tr>
+        <tr><td>Node.js / Express</td><td><div class="bar-bg"><div class="bar-fill" style="width:70%"></div></div></td><td class="bar-pct">70%</td></tr>
+        <tr><td>REST APIs</td><td><div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div></td><td class="bar-pct">75%</td></tr>
+        <tr><td>Power BI</td><td><div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div></td><td class="bar-pct">75%</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- APTIDÕES E COMPETÊNCIAS -->
+  <section>
+    <div class="section-title">Aptidões e Competências Técnicas</div>
+    <table class="comp-table">
+      <tr>
+        <td>Migração &amp; Deploy</td>
+        <td>Migração de versões Odoo e transição para Odoo SH sem downtime; gestão de ambientes cloud e versionamento via GitHub.</td>
+      </tr>
+      <tr>
+        <td>Desenvolvimento de Módulos</td>
+        <td>Módulos personalizados em Python/XML/ORM seguindo a arquitectura nativa do Odoo; customização com Odoo Studio.</td>
+      </tr>
+      <tr>
+        <td>Integrações</td>
+        <td>Desenho e implementação de integrações via REST API entre o Odoo e sistemas externos.</td>
+      </tr>
+      <tr>
+        <td>Performance &amp; Automação</td>
+        <td>Resolução de limitações estruturais da plataforma (timeouts) com RPA; saneamento de bases de dados de grande volume.</td>
+      </tr>
+      <tr>
+        <td>Business Intelligence (diferencial)</td>
+        <td>Construção de dashboards e plataformas de dados complementares ao ERP com React, Node.js e PostgreSQL.</td>
+      </tr>
+      <tr>
+        <td>Competências Pessoais</td>
+        <td>Ownership técnico de projectos críticos de negócio; comunicação com stakeholders não-técnicos; formação e capacitação de utilizadores.</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- CERTIFICAÇÕES + IDIOMAS -->
+  <div class="two-col">
+    <section>
+      <div class="section-title">Certificações</div>
+
+      <div class="cert-group">
+        <div class="cert-year">2023–2024 — Udemy</div>
+        <ul>
+          <li>Master Odoo Studio — Quisar Aldomur (4h)</li>
+          <li>Odoo ERP From Zero to Hero — Othmane Ghandi (3h)</li>
+          <li>Mastering Odoo Development — Odoo Class Video (10.5h)</li>
+          <li>Odoo: The Complete Master Class — Ahbilash Nelson (5h)</li>
+          <li>Power BI: Do Básico ao Avançado — Stefano Larmelina (13.5h)</li>
+        </ul>
+      </div>
+      <div class="cert-group">
+        <div class="cert-year">2025 — Xperiun (Online)</div>
+        <ul><li>DAX Fundamental</li></ul>
+      </div>
+      <div class="cert-group">
+        <div class="cert-year">2019–2023 — Danki Code (Online)</div>
+        <ul>
+          <li>PHP Jedai (27h)</li>
+          <li>Desenvolvimento Web Completo (84h)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Competências Linguísticas</div>
+      <div style="margin-bottom: 16px;">
+        <div class="lang-row">
+          <span class="lang-name">Português</span>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:100%"></div></div>
+          <span class="lang-pct">100%</span>
+        </div>
+        <div class="lang-row">
+          <span class="lang-name">Inglês</span>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:50%"></div></div>
+          <span class="lang-pct">50%</span>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top: 14px;">Outras Competências</div>
+      <ul class="comp-list">
+        <li>Gestão de projectos de migração e implementação ERP;</li>
+        <li>Formação e capacitação de utilizadores finais;</li>
+        <li>Automação de processos e governança de dados;</li>
+        <li>Administração de infraestrutura digital.</li>
+      </ul>
+
+      <div class="section-title" style="margin-top: 14px;">Referências</div>
+      <p style="font-size:9pt; color:#444; font-style:italic;">Disponíveis mediante solicitação.</p>
+
+    </section>
+  </div>
+
+</div>
+
+<button class="btn-pdf" onclick="downloadPDF()">
+  ⬇ Descarregar PDF
+</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  function downloadPDF() {
+    const btn = document.querySelector('.btn-pdf');
+    btn.style.display = 'none';
+    const el = document.querySelector('.page');
+    html2pdf().set({
+      margin: [8, 0, 8, 0],
+      filename: 'CV_ClaudioRoseta_Odoo.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    }).from(el).save().then(() => {
+      btn.style.display = 'flex';
+    });
+  }
+</script>
+
+</body>
+</html>
