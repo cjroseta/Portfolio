@@ -63,6 +63,37 @@ body {
 }
 
 @layer utilities {
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .motion-reveal {
+      animation: reveal-up 0.45s ease-out both;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   .text-gradient {
     background: linear-gradient(135deg, #6C63FF, #FF6584, #43E97B);
     -webkit-background-clip: text;

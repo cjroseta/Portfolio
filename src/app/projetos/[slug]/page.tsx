@@ -1,8 +1,9 @@
 import { ReactNode } from 'react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ExternalLink, Github, CheckCircle2, ArrowRight } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Github, CheckCircle2 } from 'lucide-react'
 import { projects } from '@/data/projects'
+import CaseStudyArchitecture from '@/components/CaseStudyArchitecture'
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
@@ -64,6 +65,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
             {project.caseStudy && (
               <div className="space-y-8 pt-2">
+                {project.caseStudy.businessContext && (
+                  <CaseStudySection title="Contexto de Negócio">
+                    <p className="text-slate-300 leading-relaxed">{project.caseStudy.businessContext}</p>
+                  </CaseStudySection>
+                )}
                 <CaseStudySection title="Contexto do Problema">
                   <p className="text-slate-300 leading-relaxed">{project.caseStudy.problem}</p>
                 </CaseStudySection>
@@ -81,18 +87,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
                 <CaseStudySection title="Arquitectura">
                   <p className="text-slate-300 leading-relaxed mb-5">{project.caseStudy.architecture}</p>
-                  <div className="flex flex-wrap items-center gap-2">
-                    {project.caseStudy.diagramFlow.map((node, i) => (
-                      <div key={node} className="flex items-center gap-2">
-                        <div className="px-3 py-2 rounded-lg bg-darker border border-border text-slate-200 text-sm font-medium">
-                          {node}
-                        </div>
-                        {i < project.caseStudy!.diagramFlow.length - 1 && (
-                          <ArrowRight className="w-4 h-4 text-primary flex-shrink-0" />
-                        )}
-                      </div>
-                    ))}
-                  </div>
+                  <CaseStudyArchitecture nodes={project.caseStudy.diagramFlow} label={`Fluxo de arquitectura: ${project.title}`} />
                 </CaseStudySection>
 
                 <CaseStudySection title="Processo de Desenvolvimento">
@@ -135,6 +130,19 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                     ))}
                   </ul>
                 </CaseStudySection>
+
+                {project.caseStudy.futureImprovements && (
+                  <CaseStudySection title="Evolução Futura">
+                    <ul className="space-y-2">
+                      {project.caseStudy.futureImprovements.map((improvement) => (
+                        <li key={improvement} className="flex items-start gap-3 text-slate-300">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                          {improvement}
+                        </li>
+                      ))}
+                    </ul>
+                  </CaseStudySection>
+                )}
               </div>
             )}
           </div>

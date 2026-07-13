@@ -18,7 +18,7 @@ const categoryLabels = {
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 glow-hover group flex flex-col">
+    <div className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 motion-safe:hover:-translate-y-1 transition-all duration-300 glow-hover group flex flex-col">
       <div className="h-48 bg-gradient-to-br from-primary/20 via-card to-secondary/20 flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-radial from-primary/10 to-transparent" />
         <span className="text-5xl">{getEmoji(project.category)}</span>

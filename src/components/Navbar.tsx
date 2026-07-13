@@ -19,7 +19,6 @@ export default function Navbar() {
     { href: '/', label: t.nav.home },
     { href: '/sobre', label: t.nav.about },
     { href: '/projetos', label: t.nav.projects },
-    { href: '/dados', label: t.nav.data },
     { href: '/contacto', label: t.nav.contact },
   ]
 

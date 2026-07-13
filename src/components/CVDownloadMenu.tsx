@@ -29,18 +29,21 @@ export default function CVDownloadMenu({ label, variant = 'solid' }: CVDownloadM
     <div className="relative inline-block" ref={ref}>
       <button
         onClick={() => setOpen((o) => !o)}
+        aria-haspopup="menu"
+        aria-expanded={open}
         className={`inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl transition-all text-base ${baseClasses}`}
       >
         <Download className="w-4 h-4" /> {label} <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
 
       {open && (
-        <div className="absolute z-20 mt-2 w-72 bg-card border border-border rounded-xl shadow-xl overflow-hidden left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0">
+        <div role="menu" className="absolute z-20 mt-2 w-72 bg-card border border-border rounded-xl shadow-xl overflow-hidden left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0">
           <a
             href="/cv-fullstack.html"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-start gap-3 px-4 py-3 hover:bg-primary/10 transition-colors"
+            role="menuitem"
           >
             <Code2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
             <span>
@@ -53,6 +56,7 @@ export default function CVDownloadMenu({ label, variant = 'solid' }: CVDownloadM
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-start gap-3 px-4 py-3 hover:bg-primary/10 transition-colors border-t border-border"
+            role="menuitem"
           >
             <Blocks className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
             <span>

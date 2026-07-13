@@ -34,8 +34,9 @@ export default function HeroSection() {
           <span className="text-text">{t.hero.title1} </span>
           <span className="text-gradient">{t.hero.title2}</span>
           <br />
-          <span className="text-text">{t.hero.title3} </span>
-          <span className="text-gradient">{t.hero.title4}</span>
+          <span className="text-text text-3xl md:text-5xl">{t.hero.title3}</span>
+          <br />
+          <span className="text-gradient text-2xl md:text-4xl">{t.hero.title4}</span>
         </h1>
 
         <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -54,9 +55,9 @@ export default function HeroSection() {
 
         <div className="mt-16 flex justify-center gap-8 text-faint text-sm">
           {[
-            { value: '15+', label: t.hero.stat_projects },
-            { value: '10+', label: t.hero.stat_apis },
-            { value: '6+', label: t.hero.stat_years },
+            { value: 'Odoo v17 → v18', label: t.hero.stat_migration },
+            { value: '8', label: t.hero.stat_dashboards },
+            { value: '500k+', label: t.hero.stat_records },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl font-bold text-text mb-1">{stat.value}</div>

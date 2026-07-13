@@ -2,7 +2,8 @@ import { Github, Star, GitFork, BookOpen, Users } from 'lucide-react'
 import GitHubStatsClient from './GitHubStatsClient'
 
 async function getGitHubStats() {
-  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'octocat'
+  const username = process.env.GITHUB_USERNAME
+  if (!username) return null
   const headers: HeadersInit = {}
   if (process.env.GITHUB_TOKEN) {
     headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`
@@ -13,6 +14,8 @@ async function getGitHubStats() {
       fetch(`https://api.github.com/users/${username}`, { headers, next: { revalidate: 3600 } }),
       fetch(`https://api.github.com/users/${username}/repos?per_page=100`, { headers, next: { revalidate: 3600 } }),
     ])
+
+    if (!userRes.ok || !reposRes.ok) return null
 
     const user = await userRes.json()
     const repos = await reposRes.json()

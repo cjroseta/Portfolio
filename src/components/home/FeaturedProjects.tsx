@@ -8,7 +8,7 @@ import { useLang } from '@/context/LangContext'
 
 export default function FeaturedProjects() {
   const { t } = useLang()
-  const featured = projects.slice(0, 3)
+  const featured = projects.filter((project) => project.category === 'case-study').slice(0, 3)
 
   return (
     <section className="py-20 px-6">
@@ -17,6 +17,7 @@ export default function FeaturedProjects() {
           <div>
             <p className="text-primary text-sm font-medium uppercase tracking-wider mb-2">{t.featured.label}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-text">{t.featured.title}</h2>
+            <p className="text-muted text-base mt-3 max-w-2xl">{t.featured.subtitle}</p>
           </div>
           <Link
             href="/projetos"
